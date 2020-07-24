@@ -18,7 +18,4 @@ public class ParkingLot {
         return parkedCars.get(carTicket);
     }
 
-    public List<CarTicket> parkMultiple(List<Car> cars) {
-        return null;
-    }
 }

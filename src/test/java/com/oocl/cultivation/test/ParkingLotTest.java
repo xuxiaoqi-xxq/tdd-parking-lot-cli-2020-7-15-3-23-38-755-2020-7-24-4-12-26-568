@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.LinkedList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
 
@@ -45,14 +44,16 @@ public class ParkingLotTest {
     void should_return_car_tickets_when_park_multiple_cars_given_cars() {
         //given
         ParkingLot parkingLot = new ParkingLot();
-        List<Car> cars = new LinkedList<>();
-        cars.add(new Car());
-        cars.add(new Car());
+        Car carOne = new Car();
+        Car carTwo = new Car();
 
         //when
-        List<CarTicket> carTickets = parkingLot.parkMultiple(cars);
+        CarTicket carTicketOne = parkingLot.park(carOne);
+        CarTicket carTicketTwo = parkingLot.park(carTwo);
 
         //then
-        assertNotNull(carTickets);
+        assertNotNull(carTicketOne);
+        assertNotNull(carTicketOne);
+        assertNotEquals(carTicketOne, carTicketTwo);
     }
 }
