@@ -26,9 +26,9 @@ public class ParkingLotTest {
     @Test
     void should_fetch_car_when_fetch_car_given_car_ticket() {
         //given
-        CarTicket carTicket = new CarTicket();
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
+        CarTicket carTicket = parkingLot.park(car);
 
         //when
         Car fetchedCar = parkingLot.fetch(carTicket);
