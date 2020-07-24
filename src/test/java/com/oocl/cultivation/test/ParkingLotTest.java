@@ -5,9 +5,6 @@ import com.oocl.cultivation.CarTicket;
 import com.oocl.cultivation.ParkingLot;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
@@ -41,20 +38,22 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_car_tickets_when_park_multiple_cars_given_cars() {
+    void should_fetch_car_when_park_multiple_cars_given_cars() {
         //given
         ParkingLot parkingLot = new ParkingLot();
         Car carOne = new Car();
         Car carTwo = new Car();
-
-        //when
         CarTicket carTicketOne = parkingLot.park(carOne);
         CarTicket carTicketTwo = parkingLot.park(carTwo);
 
+        //when
+        Car fetchedCarOne = parkingLot.fetch(carTicketOne);
+        Car fetchedCarTwo = parkingLot.fetch(carTicketTwo);
+
         //then
-        assertNotNull(carTicketOne);
-        assertNotNull(carTicketOne);
-        assertNotEquals(carTicketOne, carTicketTwo);
+        assertNotNull(fetchedCarOne);
+        assertNotNull(fetchedCarTwo);
+        assertNotEquals(fetchedCarOne, fetchedCarTwo);
     }
 
     @Test
