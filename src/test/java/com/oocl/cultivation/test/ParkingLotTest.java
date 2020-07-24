@@ -121,6 +121,10 @@ public class ParkingLotTest {
     void should_return_null_car_ticket_when_have_no_capacity_given_car() {
         //given
         ParkingLot parkingLot = new ParkingLot();
+        int capacity = 10;
+        for (int i = 0; i < capacity; i++) {
+            parkingLot.park(new Car());
+        }
         Car car = new Car();
 
         //when
