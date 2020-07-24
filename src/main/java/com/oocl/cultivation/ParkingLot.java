@@ -1,6 +1,7 @@
 package com.oocl.cultivation;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ParkingLot {
@@ -15,5 +16,9 @@ public class ParkingLot {
 
     public Car fetch(CarTicket carTicket) {
         return parkedCars.get(carTicket);
+    }
+
+    public List<CarTicket> parkMultiple(List<Car> cars) {
+        return null;
     }
 }
