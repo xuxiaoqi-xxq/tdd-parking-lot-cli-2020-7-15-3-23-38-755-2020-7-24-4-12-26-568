@@ -116,4 +116,17 @@ public class ParkingLotTest {
         assertNotNull(fetchedCar);
         assertNull(fetchedAgainCar);
     }
+
+    @Test
+    void should_return_null_car_ticket_when_have_no_capacity_given_car() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car();
+
+        //when
+        CarTicket carTicket = parkingLot.park(car);
+
+        //then
+        assertNull(carTicket);
+    }
 }
