@@ -10,10 +10,14 @@ public class ParkingBoy {
     }
 
     public CarTicket park(Car car) {
-        return null;
+        return parkingLot.park(car);
     }
 
     public Object fetch(CarTicket carTicket) {
-        return "Unrecognized parking ticket.";
+        Car car = parkingLot.fetch(carTicket);
+        if (car == null) {
+            return "Unrecognized parking ticket.";
+        }
+        return car;
     }
 }
