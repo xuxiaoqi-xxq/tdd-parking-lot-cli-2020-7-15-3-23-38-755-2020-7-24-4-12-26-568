@@ -29,7 +29,7 @@ public class ParkingBoyTest {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         Car car = new Car();
-        CarTicket carTicket = parkingBoy.park(car);
+        CarTicket carTicket = (CarTicket) parkingBoy.park(car);
 
         //when
         Object fetched = parkingBoy.fetch(carTicket);
@@ -45,7 +45,7 @@ public class ParkingBoyTest {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         Car car = new Car();
-        CarTicket carTicket = parkingBoy.park(car);
+        CarTicket carTicket = (CarTicket) parkingBoy.park(car);
 
         //when
         Object fetchedWithCarTicket = parkingBoy.fetch(carTicket);

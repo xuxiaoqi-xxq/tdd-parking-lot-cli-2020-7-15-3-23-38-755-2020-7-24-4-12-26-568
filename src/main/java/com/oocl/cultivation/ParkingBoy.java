@@ -9,8 +9,9 @@ public class ParkingBoy {
         this.parkingLot = parkingLot;
     }
 
-    public CarTicket park(Car car) {
-        return parkingLot.park(car);
+    public Object park(Car car) {
+        CarTicket carTicket = parkingLot.park(car);
+        return carTicket == null ? "Not enough position." : carTicket;
     }
 
     public Object fetch(CarTicket carTicket) {
