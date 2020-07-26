@@ -10,6 +10,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SmartParkingBoyTest {
@@ -51,9 +52,9 @@ public class SmartParkingBoyTest {
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
 
         // when
-        Object parkResult = (String)smartParkingBoy.park(new Car());
+        Object parkResult = smartParkingBoy.park(new Car());
 
         // then
-        assertTrue(parkResult instanceof String);
+        assertEquals("Not enough position.", parkResult);
     }
 }
