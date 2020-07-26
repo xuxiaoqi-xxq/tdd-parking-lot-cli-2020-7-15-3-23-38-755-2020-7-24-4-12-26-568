@@ -4,8 +4,10 @@ import java.util.List;
 
 public class ParkingBoy {
 
-
     private List<ParkingLot> parkingLots;
+
+    public ParkingBoy() {
+    }
 
     public ParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;

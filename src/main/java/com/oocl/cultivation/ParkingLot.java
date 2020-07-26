@@ -20,9 +20,11 @@ public class ParkingLot {
     }
 
     public Car fetch(CarTicket carTicket) {
-        Car fetchedCar = parkedCars.get(carTicket);
-        parkedCars.remove(carTicket);
-        return fetchedCar;
+        return parkedCars.remove(carTicket);
+    }
+
+    public int getEmptyPosition() {
+        return this.capacity - parkedCars.size();
     }
 
 }

@@ -23,6 +23,8 @@ public class SmartParkingBoyTest {
         ParkingLot parkingLotTwo = new ParkingLot();
         parkingLotTwo.park(new Car());
         parkingLotTwo.park(new Car());
+        parkingLots.add(parkingLotOne);
+        parkingLots.add(parkingLotTwo);
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
 
         // when
@@ -30,5 +32,28 @@ public class SmartParkingBoyTest {
 
         // then
         assertTrue(carTicket instanceof CarTicket);
+    }
+
+    @Test
+    void should_return_error_msg_when_all_parking_lots_full_given_car() throws NoSuchFieldException {
+        // given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        ParkingLot parkingLotOne = new ParkingLot();
+        for (int i = 0; i < 10; i++) {
+            parkingLotOne.park(new Car());
+        }
+        ParkingLot parkingLotTwo = new ParkingLot();
+        for (int i = 0; i < 10; i++) {
+            parkingLotTwo.park(new Car());
+        }
+        parkingLots.add(parkingLotOne);
+        parkingLots.add(parkingLotTwo);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+
+        // when
+        Object parkResult = (String)smartParkingBoy.park(new Car());
+
+        // then
+        assertTrue(parkResult instanceof String);
     }
 }
