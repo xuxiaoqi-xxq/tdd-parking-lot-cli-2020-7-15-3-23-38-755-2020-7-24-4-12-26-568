@@ -18,10 +18,10 @@ public class ParkingBoyTest {
         CarTicket wrongCarTicket = new CarTicket();
 
         //when
-        Object fetched = parkingBoy.fetch(wrongCarTicket);
+        Object fetchedResult = parkingBoy.fetch(wrongCarTicket);
 
         //then
-        assertEquals("Unrecognized parking ticket.", fetched);
+        assertEquals("Unrecognized parking ticket.", fetchedResult);
     }
 
     @Test
@@ -54,5 +54,20 @@ public class ParkingBoyTest {
         //then
         assertEquals(fetchedWithCarTicket, car);
         assertEquals("Please provide your parking ticket.", fetchedWithoutCarTicket);
+    }
+
+    @Test
+    void should_return_error_msg_when_park_car_without_position_given_car() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
+        for (int i = 0; i < 10; i++) {
+            parkingBoy.park(new Car());
+        }
+
+        //when
+        Object parkedResult = parkingBoy.park(new Car());
+
+        // then
+        assertEquals("Not enough position.", parkedResult);
     }
 }
