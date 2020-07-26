@@ -5,6 +5,9 @@ import java.util.List;
 public class SmartParkingBoy extends ParkingBoy {
     private List<ParkingLot> parkingLots;
 
+    public SmartParkingBoy() {
+    }
+
     public SmartParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
     }
