@@ -23,7 +23,7 @@ public class ParkingBoy {
 
     public FetchResult fetch(CarTicket carTicket) {
         if (carTicket == null) {
-            return null;
+            return new FetchResult(null, "Please provide your parking ticket.");
         }
         Car car = null;
         for (ParkingLot parkingLot: parkingLots) {
@@ -31,6 +31,6 @@ public class ParkingBoy {
                 break;
             }
         }
-        return new FetchResult("Unrecognized parking ticket.");
+        return new FetchResult(car, "Unrecognized parking ticket.");
     }
 }
