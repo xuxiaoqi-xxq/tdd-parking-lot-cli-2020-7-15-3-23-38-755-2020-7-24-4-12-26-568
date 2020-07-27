@@ -37,8 +37,8 @@ public class ParkingBoyTest {
         ParkResult parkResult = parkingBoy.park(car);
 
         //when
-        Object fetched = parkingBoy.fetch(parkResult.getCarTicket());
-        Object fetchedAgain = parkingBoy.fetch(parkResult.getCarTicket());
+        FetchResult fetched = parkingBoy.fetch(parkResult.getCarTicket());
+        FetchResult fetchedAgain = parkingBoy.fetch(parkResult.getCarTicket());
 
         //then
         assertEquals(fetched, car);
@@ -55,8 +55,8 @@ public class ParkingBoyTest {
         ParkResult parkResult = parkingBoy.park(car);
 
         //when
-        Object fetchedWithCarTicket = parkingBoy.fetch(parkResult.getCarTicket());
-        Object fetchedWithoutCarTicket = parkingBoy.fetch(null);
+        FetchResult fetchedWithCarTicket = parkingBoy.fetch(parkResult.getCarTicket());
+        FetchResult fetchedWithoutCarTicket = parkingBoy.fetch(null);
 
         //then
         assertEquals(fetchedWithCarTicket, car);
