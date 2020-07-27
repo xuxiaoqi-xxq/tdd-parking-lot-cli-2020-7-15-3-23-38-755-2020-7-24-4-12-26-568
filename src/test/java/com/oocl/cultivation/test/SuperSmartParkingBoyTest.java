@@ -25,10 +25,10 @@ public class SuperSmartParkingBoyTest {
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
 
         // when
-        CarTicket carTicket = (CarTicket)superSmartParkingBoy.park(new Car());
+        superSmartParkingBoy.park(new Car());
 
         // then
-        assertTrue(carTicket instanceof CarTicket);
+        assertEquals(8, parkingLotOne.getEmptyPosition());
     }
 
     @Test
