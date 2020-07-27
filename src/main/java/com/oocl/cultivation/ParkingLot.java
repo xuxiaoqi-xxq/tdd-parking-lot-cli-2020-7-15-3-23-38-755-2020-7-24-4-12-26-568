@@ -8,7 +8,15 @@ public class ParkingLot {
 
     private Map<CarTicket, Car> parkedCars = new HashMap<>();
 
-    private int capacity = 10;
+    private int capacity;
+
+    public ParkingLot() {
+        this.capacity = 10;
+    }
+
+    public ParkingLot(int capacity) {
+        this.capacity = capacity;
+    }
 
     public CarTicket park(Car car) {
         if (parkedCars.size() == capacity) {

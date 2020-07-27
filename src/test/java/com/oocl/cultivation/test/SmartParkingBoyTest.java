@@ -19,9 +19,9 @@ public class SmartParkingBoyTest {
     void should_park_into_more_empty_parking_lot_when_park_given_car() {
         // given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLot parkingLotOne = new ParkingLot();
+        ParkingLot parkingLotOne = new ParkingLot(10);
         parkingLotOne.park(new Car());
-        ParkingLot parkingLotTwo = new ParkingLot();
+        ParkingLot parkingLotTwo = new ParkingLot(10);
         parkingLotTwo.park(new Car());
         parkingLotTwo.park(new Car());
         parkingLots.add(parkingLotOne);
@@ -39,15 +39,11 @@ public class SmartParkingBoyTest {
     void should_return_error_msg_when_all_parking_lots_full_given_car() {
         // given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLot parkingLotOne = new ParkingLot();
-        for (int i = 0; i < 10; i++) {
-            parkingLotOne.park(new Car());
-        }
-        ParkingLot parkingLotTwo = new ParkingLot();
-        for (int i = 0; i < 10; i++) {
-            parkingLotTwo.park(new Car());
-        }
+        ParkingLot parkingLotOne = new ParkingLot(1);
+        parkingLotOne.park(new Car());
         parkingLots.add(parkingLotOne);
+        ParkingLot parkingLotTwo = new ParkingLot(1);
+        parkingLotTwo.park(new Car());
         parkingLots.add(parkingLotTwo);
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
 
