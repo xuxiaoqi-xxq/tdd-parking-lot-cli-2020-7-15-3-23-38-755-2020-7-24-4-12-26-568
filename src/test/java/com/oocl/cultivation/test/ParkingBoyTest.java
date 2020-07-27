@@ -95,9 +95,9 @@ public class ParkingBoyTest {
         }
 
         // when
-        CarTicket carTicket = (CarTicket)parkingBoy.park(new Car());
+        parkingBoy.park(new Car());
 
         // then
-        assertTrue(carTicket instanceof CarTicket);
+        assertEquals(9, parkingLots.get(1).getEmptyPosition());
     }
 }
