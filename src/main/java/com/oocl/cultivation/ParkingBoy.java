@@ -13,14 +13,14 @@ public class ParkingBoy {
         this.parkingLots = parkingLots;
     }
 
-    public Object park(Car car) {
+    public ParkResult park(Car car) {
         ParkResult parkResult = null;
         for (ParkingLot parkingLot: parkingLots) {
             if ((parkResult = parkingLot.park(car)) != null) {
                 break;
             }
         }
-        return parkResult == null ? "Not enough position." : parkResult;
+        return parkResult;
     }
 
     public Object fetch(CarTicket carTicket) {

@@ -1,9 +1,6 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.CarTicket;
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.ParkingLot;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -37,11 +34,11 @@ public class ParkingBoyTest {
         parkingLots.add(new ParkingLot());
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         Car car = new Car();
-        CarTicket carTicket = (CarTicket) parkingBoy.park(car);
+        ParkResult parkResult = parkingBoy.park(car);
 
         //when
-        Object fetched = parkingBoy.fetch(carTicket);
-        Object fetchedAgain = parkingBoy.fetch(carTicket);
+        Object fetched = parkingBoy.fetch(parkResult.getCarTicket());
+        Object fetchedAgain = parkingBoy.fetch(parkResult.getCarTicket());
 
         //then
         assertEquals(fetched, car);
@@ -55,10 +52,10 @@ public class ParkingBoyTest {
         parkingLots.add(new ParkingLot());
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         Car car = new Car();
-        CarTicket carTicket = (CarTicket) parkingBoy.park(car);
+        ParkResult parkResult = parkingBoy.park(car);
 
         //when
-        Object fetchedWithCarTicket = parkingBoy.fetch(carTicket);
+        Object fetchedWithCarTicket = parkingBoy.fetch(parkResult.getCarTicket());
         Object fetchedWithoutCarTicket = parkingBoy.fetch(null);
 
         //then
