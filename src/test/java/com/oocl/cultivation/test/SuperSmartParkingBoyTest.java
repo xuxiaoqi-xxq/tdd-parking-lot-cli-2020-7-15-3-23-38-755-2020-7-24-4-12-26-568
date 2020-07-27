@@ -7,12 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SuperSmartParkingBoyTest {
 
     @Test
-    void should_park_into_larger_available_parking_lot_when_park_given_car() throws NoSuchFieldException {
+    void should_park_into_larger_available_parking_lot_when_park_given_car() {
         // given
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLotOne = new ParkingLot();
@@ -32,7 +31,7 @@ public class SuperSmartParkingBoyTest {
     }
 
     @Test
-    void should_return_error_msg_when_all_parking_lots_full_given_car() throws NoSuchFieldException {
+    void should_return_error_msg_when_all_parking_lots_full_given_car() {
         // given
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLotOne = new ParkingLot();
