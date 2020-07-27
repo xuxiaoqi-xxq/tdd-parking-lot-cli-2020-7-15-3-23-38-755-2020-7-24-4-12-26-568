@@ -14,13 +14,11 @@ public class ParkingBoy {
     }
 
     public ParkResult park(Car car) {
-        ParkResult parkResult = null;
-        for (ParkingLot parkingLot: parkingLots) {
-            if ((parkResult = parkingLot.park(car)) != null) {
-                break;
-            }
-        }
-        return parkResult;
+        return parkingLots.stream()
+                .filter(parkingLot -> parkingLot.getEmptyPosition() > 0)
+                .findFirst()
+                .orElse(parkingLots.get(0))
+                .park(car);
     }
 
     public Object fetch(CarTicket carTicket) {

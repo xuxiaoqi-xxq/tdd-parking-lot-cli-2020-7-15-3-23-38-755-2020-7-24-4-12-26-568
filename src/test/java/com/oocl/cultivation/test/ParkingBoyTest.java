@@ -4,10 +4,10 @@ import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingBoyTest {
 
@@ -84,17 +84,15 @@ public class ParkingBoyTest {
     void should_park_into_second_parking_lot_when_first_full_given_car() {
         // given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
-        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot(1));
+        parkingLots.add(new ParkingLot(10));
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
-        for (int i = 0; i < 10; i++) {
-            parkingBoy.park(new Car());
-        }
-
-        // when
         parkingBoy.park(new Car());
 
+        // when
+        ParkResult parkResult = parkingBoy.park(new Car());
+
         // then
-        assertEquals(9, parkingLots.get(1).getEmptyPosition());
+        assertNotNull(parkResult.getCarTicket());
     }
 }
