@@ -21,10 +21,10 @@ public class ParkingBoyTest {
         CarTicket wrongCarTicket = new CarTicket();
 
         //when
-        Object fetchedResult = parkingBoy.fetch(wrongCarTicket);
+        FetchResult fetchedResult = parkingBoy.fetch(wrongCarTicket);
 
         //then
-        assertEquals("Unrecognized parking ticket.", fetchedResult);
+        assertEquals("Unrecognized parking ticket.", fetchedResult.getMessage());
     }
 
     @Test
