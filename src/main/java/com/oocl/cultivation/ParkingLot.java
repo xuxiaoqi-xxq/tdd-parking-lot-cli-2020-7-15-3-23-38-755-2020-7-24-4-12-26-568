@@ -20,7 +20,7 @@ public class ParkingLot {
 
     public ParkResult park(Car car) {
         if (parkedCars.size() == capacity) {
-            return new ParkResult(null, null);
+            return new ParkResult(null, "Not enough position.");
         }
         CarTicket carTicket = new CarTicket();
         parkedCars.put(carTicket, car);

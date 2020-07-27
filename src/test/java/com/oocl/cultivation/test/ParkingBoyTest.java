@@ -74,10 +74,10 @@ public class ParkingBoyTest {
         }
 
         //when
-        Object parkedResult = parkingBoy.park(new Car());
+        ParkResult parkedResult = parkingBoy.park(new Car());
 
         // then
-        assertEquals("Not enough position.", parkedResult);
+        assertEquals("Not enough position.", parkedResult.getMessage());
     }
 
     @Test
