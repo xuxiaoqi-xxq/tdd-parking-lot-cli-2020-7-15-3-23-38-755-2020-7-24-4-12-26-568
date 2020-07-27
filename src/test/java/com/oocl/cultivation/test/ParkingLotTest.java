@@ -2,6 +2,7 @@ package com.oocl.cultivation.test;
 
 import com.oocl.cultivation.Car;
 import com.oocl.cultivation.CarTicket;
+import com.oocl.cultivation.ParkResult;
 import com.oocl.cultivation.ParkingLot;
 import org.junit.jupiter.api.Test;
 
@@ -16,10 +17,10 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot();
 
         //when
-        CarTicket carTicket = parkingLot.park(car);
+        ParkResult parkResult = parkingLot.park(car);
 
         //then
-        assertNotNull(carTicket);
+        assertNotNull(parkResult.getCarTicket());
     }
 
     @Test
@@ -27,10 +28,10 @@ public class ParkingLotTest {
         //given
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
-        CarTicket carTicket = parkingLot.park(car);
+        ParkResult parkResult = parkingLot.park(car);
 
         //when
-        Car fetchedCar = parkingLot.fetch(carTicket);
+        Car fetchedCar = parkingLot.fetch(parkResult.getCarTicket());
 
         //then
         assertNotNull(fetchedCar);
@@ -43,12 +44,12 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot();
         Car carOne = new Car();
         Car carTwo = new Car();
-        CarTicket carTicketOne = parkingLot.park(carOne);
-        CarTicket carTicketTwo = parkingLot.park(carTwo);
+        ParkResult parkResultOne = parkingLot.park(carOne);
+        ParkResult parkResultTwo = parkingLot.park(carTwo);
 
         //when
-        Car fetchedCarOne = parkingLot.fetch(carTicketOne);
-        Car fetchedCarTwo = parkingLot.fetch(carTicketTwo);
+        Car fetchedCarOne = parkingLot.fetch(parkResultOne.getCarTicket());
+        Car fetchedCarTwo = parkingLot.fetch(parkResultTwo.getCarTicket());
 
         //then
         assertNotNull(fetchedCarOne);
@@ -61,10 +62,10 @@ public class ParkingLotTest {
         //given
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
-        CarTicket carTicket = parkingLot.park(car);
+        ParkResult parkResult = parkingLot.park(car);
 
         //when
-        Car fetchedCar = parkingLot.fetch(carTicket);
+        Car fetchedCar = parkingLot.fetch(parkResult.getCarTicket());
 
         //then
         assertNotNull(fetchedCar);
@@ -105,11 +106,11 @@ public class ParkingLotTest {
         //given
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
-        CarTicket carTicket = parkingLot.park(car);
+        ParkResult parkResult = parkingLot.park(car);
 
         //when
-        Car fetchedCar = parkingLot.fetch(carTicket);
-        Car fetchedAgainCar = parkingLot.fetch(carTicket);
+        Car fetchedCar = parkingLot.fetch(parkResult.getCarTicket());
+        Car fetchedAgainCar = parkingLot.fetch(parkResult.getCarTicket());
 
         //then
         assertNotNull(fetchedCar);
@@ -117,7 +118,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_null_car_ticket_when_have_no_capacity_given_car() {
+    void should_return_null_car_ticket_when_have_no_position_given_car() {
         //given
         ParkingLot parkingLot = new ParkingLot();
         int capacity = 10;
@@ -127,9 +128,9 @@ public class ParkingLotTest {
         Car car = new Car();
 
         //when
-        CarTicket carTicket = parkingLot.park(car);
+        ParkResult parkResult = parkingLot.park(car);
 
         //then
-        assertNull(carTicket);
+        assertNull(parkResult.getCarTicket());
     }
 }

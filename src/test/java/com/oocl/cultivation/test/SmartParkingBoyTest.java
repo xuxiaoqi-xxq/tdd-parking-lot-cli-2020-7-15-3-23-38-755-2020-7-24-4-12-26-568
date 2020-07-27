@@ -1,9 +1,6 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.CarTicket;
-import com.oocl.cultivation.ParkingLot;
-import com.oocl.cultivation.SmartParkingBoy;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;

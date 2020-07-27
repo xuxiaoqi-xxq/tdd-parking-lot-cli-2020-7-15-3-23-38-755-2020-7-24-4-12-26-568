@@ -13,14 +13,13 @@ public class SmartParkingBoy extends ParkingBoy {
     }
 
     @Override
-    public Object park(Car car) {
+    public ParkResult park(Car car) {
         ParkingLot maxPositionParkingLot = parkingLots.get(0);
         for (ParkingLot parkingLot: parkingLots) {
             if (parkingLot.getEmptyPosition() > maxPositionParkingLot.getEmptyPosition()) {
                 maxPositionParkingLot = parkingLot;
             }
         }
-        CarTicket carTicket = maxPositionParkingLot.park(car);
-        return carTicket == null ? "Not enough position." : carTicket;
+        return maxPositionParkingLot.park(car);
     }
 }

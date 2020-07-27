@@ -11,7 +11,7 @@ public class SuperSmartParkingBoy extends SmartParkingBoy{
     }
 
     @Override
-    public Object park(Car car) {
+    public ParkResult park(Car car) {
         ParkingLot maxPositionParkingLot = parkingLots.get(0);
         for (ParkingLot parkingLot: parkingLots) {
             double availableRate = parkingLot.getEmptyPosition() / parkingLot.getCapacity();
@@ -20,7 +20,7 @@ public class SuperSmartParkingBoy extends SmartParkingBoy{
                 maxPositionParkingLot = parkingLot;
             }
         }
-        CarTicket carTicket = maxPositionParkingLot.park(car);
-        return carTicket == null ? "Not enough position." : carTicket;
+        ParkResult parkResult = maxPositionParkingLot.park(car);
+        return parkResult;
     }
 }
