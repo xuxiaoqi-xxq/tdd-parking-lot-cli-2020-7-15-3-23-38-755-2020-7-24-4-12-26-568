@@ -27,17 +27,4 @@ public class SmartParkingBoyTest {
         assertEquals(1, parkingLotOne.getEmptyPosition());
         assertEquals(1, parkingLotTwo.getEmptyPosition());
     }
-
-    @Test
-    void should_return_error_msg_when_all_parking_lots_full_given_car() {
-        // given
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(Arrays.asList(new ParkingLot(1)));
-        smartParkingBoy.park(new Car());
-
-        // when
-        ParkResult parkResult = smartParkingBoy.park(new Car());
-
-        // then
-        assertEquals("Not enough position.", parkResult.getMessage());
-    }
 }
